@@ -16,3 +16,4 @@ if __name__ == "__main__":
     if num_args > 0:
         for i in range(1, num_args + 1):
             print("{}: {}".format(i, sys.argv[i]))
+
