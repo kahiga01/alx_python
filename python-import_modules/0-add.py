@@ -1,21 +1,11 @@
-import sys
-
-def print_arguments():
-    arguments = sys.argv[1:]
-    num_arguments = len(arguments)
-
-    print("Number of argument(s): {}".format(num_arguments), end="")
-    if num_arguments == 0:
-        print(".")
-    elif num_arguments == 1:
-        print(", argument:", end="")
-    else:
-        print(", arguments:", end="")
-    
-    print()
-
-    for i, arg in enumerate(arguments, 1):
-        print("{}: {}".format(i, arg))
-
+#!/usr/bin/python3
 if __name__ == "__main__":
-    print_arguments()
+    # declare two variable in different line
+    a = 1
+    b = 2
+
+    # import module add
+    add = __import__("add_0").add
+
+    # print the value
+    print("{} + {} = {}".format(a, b, add(a, b)))
