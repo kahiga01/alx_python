@@ -15,6 +15,16 @@ def print_arguments(args):
             print(f"{idx}: {arg}")
 
 if __name__ == "__main__":
-    arguments = sys.argv[1:]
-    print_arguments(arguments)
+    test_cases = [
+        "Hello",
+        "Hello Holberton",
+        "",
+        "98 Battery street",
+        "98 Battery street CA"
+    ]
+
+    for test_case in test_cases:
+        arguments = test_case.split()
+        print_arguments(arguments)
+        print()
 
