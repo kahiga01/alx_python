@@ -1,16 +1,12 @@
-# File: main.py
+# 0-add.py
 
-# Function definition from 'add_0.py'
-def add(a, b):
-    return a + b
-
-# Assign values to variables a and b
 a = 1
 b = 2
 
-# Call the 'add' function with arguments a and b and store the result in the variable 'result'
-result = add(a, b)
+# Define the add function inline without importing add_0.py
+def add(a, b):
+    return (a + b)
 
-# Print the result using string formatting
+result = add(a, b)
 print(f"{a} + {b} = {result}")
 
