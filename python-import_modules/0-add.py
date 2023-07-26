@@ -1,11 +1,10 @@
-# 0-add.py
+#!/usr/bin/python3
 
 a = 1
 b = 2
 
-def add(a, b):
-    return a - b
+from add_0 import add
 
 result = add(a, b)
-print(f"FAKE add() => {a} - {b} = {result}")
+print(f"{a} + {b} = {result}")
 
