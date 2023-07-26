@@ -1,13 +1,16 @@
-#!/usr/bin/python3
+# File: main.py
 
-if __name__ == "__main__":
-    # declare two variable in different line
-    a = 1
-    b = 2
+# Function definition from 'add_0.py'
+def add(a, b):
+    return a + b
 
-    # import module add
-    from add_0 import add
+# Assign values to variables a and b
+a = 1
+b = 2
 
-    # print the value
-    print("{} + {} = {}".format(a, b, add(a, b)))
+# Call the 'add' function with arguments a and b and store the result in the variable 'result'
+result = add(a, b)
+
+# Print the result using string formatting
+print(f"{a} + {b} = {result}")
 

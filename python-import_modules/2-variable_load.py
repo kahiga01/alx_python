@@ -6,4 +6,3 @@ if __name__ == "__main__":
         print("Correct output - case: a =", a)
     except ImportError:
         print("Correct output - case: a missing")
-
