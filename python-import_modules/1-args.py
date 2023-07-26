@@ -1,23 +1,20 @@
-# number_and_list_of_args.py
-
 import sys
 
-def print_arguments(arguments):
-    num_arguments = len(arguments)
-    print(f"Number of argument(s): {num_arguments}", end="")
+def print_arguments(args):
+    num_args = len(args)
+    plural_suffix = 's' if num_args != 1 else ''
+    argument_str = 'argument' if num_args == 1 else 'arguments'
     
-    if num_arguments == 0:
-        print(":", end="")
-    elif num_arguments == 1:
-        print(", followed by:", end="")
+    print(f"Number of argument{plural_suffix}: {num_args}, followed by:", end="")
+    
+    if num_args == 0:
+        print(" .")
     else:
-        print("s, followed by:", end="")
-    
-    print()
-
-    for idx, arg in enumerate(arguments, start=1):
-        print(f"{idx}: {arg}")
+        print()
+        for idx, arg in enumerate(args, start=1):
+            print(f"{idx}: {arg}")
 
 if __name__ == "__main__":
-    print_arguments(sys.argv[1:])
+    arguments = sys.argv[1:]
+    print_arguments(arguments)
 
