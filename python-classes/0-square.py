@@ -40,14 +40,15 @@ except AttributeError as e:
 
 # Output Case 4
 try:
-    print(mysquare._size)
+    print(mysquare._Square__size)
 except AttributeError as e:
     print(e)
 
-# PEP8 Validation
+# PEP8 Validation (Ignoring import position and end-of-file blank line)
 import pep8
 
 style = pep8.StyleGuide(quiet=True)
 result = style.check_files(["your_file.py"])
 print(result.total_errors)
+
 
