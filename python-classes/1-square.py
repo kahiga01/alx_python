@@ -24,9 +24,12 @@ class Square:
         self.__size = size
 
     @property
-    def dict_(self):
+    def dict(self):
         """
         Return the dictionary representation of the Square.
+
+        Returns:
+            dict: A dictionary containing the size of the square.
         """
         return {'_Square__size': self.__size}
 
