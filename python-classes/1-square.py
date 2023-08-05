@@ -23,3 +23,10 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = size
 
+    @property
+    def dict_(self):
+        """
+        Return the dictionary representation of the Square.
+        """
+        return {'_Square__size': self.__size}
+
