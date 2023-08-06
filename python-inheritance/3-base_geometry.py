@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-
-"""
-A basic template for representing geometric entities.
-"""
+"""An empty base class for representing geometric entities."""
 
 
 class BaseGeometry:
     """
-    An empty base class to represent geometric entities.
+    An empty base class for representing geometric entities.
 
-    This class acts as a foundation for other classes to inherit from, allowing them
-    to define specific geometric entities and their corresponding behavior.
+    This class serves as a base class that other classes can inherit from to
+    define specific geometric entities and their behavior.
 
     Attributes:
         None
@@ -20,4 +17,3 @@ class BaseGeometry:
     """
 
     pass
-
