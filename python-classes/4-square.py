@@ -1,21 +1,28 @@
 class Square:
     """
-    Represents a square with methods to calculate area and print the square pattern.
+    A class representing a square.
+
+    Attributes:
+        __size (int): The size of the square (private attribute).
     """
 
     def __init__(self, size=0):
         """
-        Initializes a Square instance.
+        Initializes a new Square instance.
 
         Args:
-            size (int): The size of the square's sides (default is 0).
+            size (int): The size of the square (default is 0).
+
+        Raises:
+            TypeError: If the provided size is not an integer.
+            ValueError: If the provided size is less than 0.
         """
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
         """
-        Get the size of the square's sides.
+        Get the size of the square.
 
         Returns:
             int: The size of the square.
@@ -25,20 +32,21 @@ class Square:
     @size.setter
     def size(self, value):
         """
-        Set the size of the square's sides.
+        Set the size of the square.
 
         Args:
-            value (int): The new size of the square.
+            value (int): The size of the square.
 
         Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than 0.
+            TypeError: If the provided size is not an integer.
+            ValueError: If the provided size is less than 0.
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
 
     def area(self):
         """
@@ -53,23 +61,11 @@ class Square:
         """
         Print the square pattern using the '#' character.
 
-        If size is 0, an empty line is printed.
+        If size is equal to 0, print an empty line.
         """
         if self.__size == 0:
             print()
         else:
             for _ in range(self.__size):
                 print("#" * self.__size)
-
-
-# Test cases
-if __name__ == "__main__":
-    mysquare = Square(3)
-    mysquare.my_print()
-
-    mysquare = Square(10)
-    mysquare.my_print()
-
-    mysquare = Square(0)
-    mysquare.my_print()
-
+ 
