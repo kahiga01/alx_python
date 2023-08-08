@@ -1,35 +1,36 @@
 #!/usr/bin/python3
+"""
+4-base_geometry module
 
-"""A foundational class for representing geometric entities."""
+Define a class BaseGeometry with the area() method.
+"""
 
 
 class BaseGeometry:
     """
-    A foundational class for representing geometric entities.
-
-    This class acts as a base for other classes to inherit from, enabling them to define
-    specific geometric entities along with their respective behaviors.
-
-    Attributes:
-        None
-
-    Methods:
-        area(self):
-            This method is not implemented in the base class and should be overridden in subclasses.
-            It raises an Exception to indicate that the specific implementation of area() is missing.
+    BaseGeometry class.
     """
 
     def area(self):
         """
-        Calculate the area of the geometric entity.
-
-        Raises:
-            Exception: Since the method is not implemented in the base class,
-                      this exception is raised to indicate that the specific
-                      implementation of area() is missing.
-
-        Returns:
-            None: The method does not return any value as it is intended to be overridden.
+        Public instance method to calculate area.
         """
         raise Exception("area() is not implemented")
 
+    def __dir__(self):
+        """
+        Override the dir() method to include the area() method in the list of attributes for the instance.
+        """
+        attributes = super().__dir__()
+        # Add area() to the list of attributes for the instance
+        attributes.append('area')
+        return attributes
+
+
+if __name__ == "__main__":
+    bg = BaseGeometry()
+    try:
+        print(bg.area())
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+    print(dir(bg))
