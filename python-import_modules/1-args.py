@@ -1,30 +1,22 @@
 import sys
 
-def print_arguments(args):
-    num_args = len(args)
-    plural_suffix = 's' if num_args != 1 else ''
-    argument_str = 'argument' if num_args == 1 else 'arguments'
 
-    print(f"Number of argument{plural_suffix}: {num_args}, followed by:", end="")
-
+def main():
+    # Number of arguments
+    num_args = len(sys.argv) - 1
+    # Output the number of arguments
     if num_args == 0:
-        print(" .")
+        print("0 arguments.")
+    elif num_args == 1:
+        print("1 argument:")
     else:
-        print()
-        for idx, arg in enumerate(args, start=1):
-            print(f"{idx}: {arg}")
+        print("{} arguments:".format(num_args))
+
+    # Output the list of arguments
+    if num_args > 0:
+        for i in range(1, num_args + 1):
+            print("{}: {}".format(i, sys.argv[i]))
+
 
 if __name__ == "__main__":
-    test_cases = [
-        "Hello",
-        "Hello Holberton",
-        "",
-        "98 Battery street",
-        "98 Battery street CA"
-    ]
-
-    for test_case in test_cases:
-        arguments = test_case.split()
-        print_arguments(arguments)
-        print()
-
+    main()
