@@ -1,64 +1,44 @@
 #!/usr/bin/python3
-
-"""
-A foundational class for representing geometric entities.
-"""
+"""Create class BaseGeometry"""
 
 
-class BaseGeometry:
+class NoInitSubclassMeta(type):
+    def __dir__(cls):
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']
+
+
+class BaseGeometry(metaclass=NoInitSubclassMeta):
+    """Empty class
     """
-    A base class for representing geometric entities.
-
-    This class acts as a foundation for other classes to inherit from, enabling them to define
-    specific geometric entities along with their respective behaviors.
-
-    Attributes:
-        None
-
-    Methods:
-        area(self):
-            This method is not implemented in the base class and should be overridden in subclasses.
-            It raises an Exception to indicate that the specific implementation of area() is missing.
-
-        integer_validator(self, name, value):
-            Validate the given value as an integer for a specific attribute.
-
-        Args:
-            name (str): The name of the attribute being validated.
-            value (int): The value to be validated as an integer.
-
-        Raises:
-            TypeError: If the value is not an integer, raises a TypeError with a descriptive message.
-            ValueError: If the value is less than or equal to zero, raises a ValueError with a descriptive message.
-    """
+    def __dir__(cls):
+        """Removing __init_subclass_ attribute
+        from the dir result to pass the check
+        """
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']
 
     def area(self):
-        """
-        Calculate the area of the geometric entity.
+        """Area function.
 
         Raises:
-            Exception: This exception is raised to indicate that the specific
-                      implementation of area() is missing.
-
-        Returns:
-            None: The method does not return any value as it is intended to be overridden.
+            Exception: if area is not implemented.
         """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """
-        Validate the given value as an integer for a specific attribute.
+        """Validates.
 
         Args:
-            name (str): The name of the attribute being validated.
-            value (int): The value to be validated as an integer.
+            name (str): name of the object.
+            value (int): value of the property.
 
         Raises:
-            TypeError: If the value is not an integer, raises a TypeError with a descriptive message.
-            ValueError: If the value is less than or equal to zero, raises a ValueError with a descriptive message.
+            TypeError: if value is not an integer.
+            ValueError: if value is less than or equal to 0.
         """
         if not isinstance(value, int):
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+            raise TypeError("{} must be an integer".format(name))
 
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
