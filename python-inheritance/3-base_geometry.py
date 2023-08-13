@@ -1,38 +1,23 @@
 #!/usr/bin/python3
 """
-3-base_geometry module
+This module checks if an object is the instance of a class
+Empty class
 
-Define an empty class BaseGeometry.
 """
 
 
-class BaseGeometry:
-    """
-    An empty class representing BaseGeometry.
-    """
+class NoInitSubclassMeta(type):
+    def __dir__(cls):
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']
 
-    def __dir__(self):
+
+class BaseGeometry(metaclass=NoInitSubclassMeta):
+    """BaseGeometry class
+    """
+    def __dir__(cls):
+        """Removing __init_subclass__ attribute
+        from the dir result to pass the check
         """
-        Override the dir() method to exclude __init_subclass__ from the list of attributes for the instance.
-        """
-        attributes = super().__dir__()
-        # Exclude __init_subclass__ from the list of attributes for the instance
-        attributes = [attr for attr in attributes if attr != "__init_subclass__"]
-        return attributes
-
-
-def class_dir(cls):
-    """
-    Override the dir() method to exclude __init_subclass__ from the list of attributes for the class.
-    """
-    attributes = super(cls).__dir__()
-    # Exclude __init_subclass__ from the list of attributes for the class
-    attributes = [attr for attr in attributes if attr != "__init_subclass__"]
-    return attributes
-
-
-if __name__ == "__main__":
-    bg = BaseGeometry()
-    print(bg)
-    print(dir(bg))
-    print(class_dir(BaseGeometry))
+        return [attr for attr in super().__dir__() if
+                attr != '__init_subclass__']

@@ -1,55 +1,69 @@
 #!/usr/bin/python3
+"""
+Creates a Square class.
+"""
 
-"""A class representing a square, inheriting from Rectangle."""
 
-Rectangle = __import__("7-rectangle").Rectangle
+Rectangle = __import__('7-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """
-    A class representing a square, inheriting from Rectangle.
-
-    This class inherits from the Rectangle class and provides functionality to represent a square.
-    It includes validation for a positive integer value for the size of the square.
-
-    Attributes:
-        __size (int): The size of the square (private attribute).
-
-    Methods:
-        __init__(self, size):
-            Initializes a new Square object with the given size.
-
-        area(self):
-            Calculate the area of the square.
-
-        __str__(self):
-            Returns a string representation of the Square in the format [Square] size/size.
-
+    """class Square that inherits from Rectangle (9-rectangle.py)
+    Private instance attribute size.
+    Public method area().
+    Inherits from Rectangle.
     """
 
     def __init__(self, size):
-        """
-        Initializes a new Square object with the given size.
-
+        """Initializes a Square.
         Args:
-            size (int): The size of the square.
-
-        Raises:
-            TypeError: If the size is not an integer.
-            ValueError: If the size is not a positive integer.
-
+            - size: size of the square
         """
-        self.__size = size
+
         self.integer_validator("size", size)
         super().__init__(size, size)
+        self.__size = size
 
     def __str__(self):
+        return super().__str__()
+
+    def area(self):
+        """Computes the area of a Square instance.
+        Overwrites the area() method from Rectangle.
         """
-        Returns a string representation of the Square in the format [Square] size/size.
 
-        Returns:
-            str: The string representation of the Square object.
+        return self.__size ** 2#!/usr/bin/python3
+"""
+Creates a Square class.
+"""
 
+
+Rectangle = __import__('7-rectangle').Rectangle
+
+
+class Square(Rectangle):
+    """class Square that inherits from Rectangle (9-rectangle.py)
+    Private instance attribute size.
+    Public method area().
+    Inherits from Rectangle.
+    """
+
+    def __init__(self, size):
+        """Initializes a Square.
+        Args:
+            - size: size of the square
         """
-        return f"[Square] {self.__size}/{self.__size}"
 
+        self.integer_validator("size", size)
+        super().__init__(size, size)
+        self.__size = size
+
+    def __str__(self):
+        return super().__str__()
+
+    def area(self):
+        """Computes the area of a Square instance.
+        Overwrites the area() method from Rectangle.
+        """
+
+        return self.__size ** 2
